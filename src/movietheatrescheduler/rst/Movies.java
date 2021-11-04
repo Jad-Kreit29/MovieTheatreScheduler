@@ -11,31 +11,41 @@ package movietheatrescheduler.rst;
  */
 public class Movies {
     
-    private String movieDesc;
-    private String movieRating;
-    private String comment;
-
-    public Movies(String movieDesc, String movieRating, String comment) {
-        this.movieDesc = movieDesc;
-        this.movieRating = movieRating;
-        this.comment = comment;
-    }
-
-    public String getMovieDesc() {
-        return movieDesc;
-    }
-
-    public String getMovieRating() {
-        return movieRating;
-    }
-
-    public String getComment() {
-        return comment;
-    }
+    String[] showings = new String[1];
     
-    public void movieDescription() {
-        
-    }
+    private String movie1 = showings[0];
+    Timings times;
     
     
+    
+    
+    
+    
+
+//    private String movieDesc;
+//    private String movieRating;
+//    private String comment;
+//
+//    public Movies(String movieDesc, String movieRating, String comment) {
+//        this.movieDesc = movieDesc;
+//        this.movieRating = movieRating;
+//        this.comment = comment;
+//    }
+//
+//    public String getMovieDesc() {
+//        return movieDesc;
+//    }
+//
+//    public String getMovieRating() {
+//        return movieRating;
+//    }
+//
+//    public String getComment() {
+//        return comment;
+//    }
+//
+//    public void movieDescription() {
+//
+//    }
+
 }
