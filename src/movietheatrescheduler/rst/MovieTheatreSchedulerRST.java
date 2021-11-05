@@ -28,20 +28,22 @@ public class MovieTheatreSchedulerRST {
         
         
         //Show the available movies
-        System.out.println("\nHere are the movies we have!\n\nSuper Mario Brothers: The Movie!");
+        System.out.println("\nHere are the movies we have!\n\nSuper Mario Brothers: The Movie!\nFrogger Man\nBeniman Fanklin: A Much Sad Story");
         //Since this is the only film currently, show availble times
         System.out.println("\nHere are the avalable times:");
-        Movies m1=new Movies();
-        m1.times= new Timings("10:30 AM", "03:30 PM", "09:30 PM");
-        films.add(m1);
-        
-        Movies m2=new Movies();
-        m2.times=new Timings("11:00 AM", "05:00 PM", "08:30 PM");
-        films.add(m2);
-        
-        for (Movies x:films){
-            x.times.getTimes();
-        }
+//        Movies m1=new Movies();
+//        m1.times= new Timings("10:30 AM", "03:30 PM", "09:30 PM");
+//        films.add(m1);
+//        
+//        Movies m2=new Movies();
+//        m2.times=new Timings("11:00 AM", "05:00 PM", "08:30 PM");
+//        films.add(m2);
+//        
+//        for (Movies x:films){
+//            x.times.getTimes();
+//        }
+        Theatre t1=new Theatre();
+        t1.DisplayShows();
         //Ask for which time they want to see
         System.out.println("Which time do you want to see? (1, 2, 3)");
         userChoice = in.nextInt();

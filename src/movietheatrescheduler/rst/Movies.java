@@ -5,16 +5,25 @@
  */
 package movietheatrescheduler.rst;
 
+import java.util.*;
+
 /**
  *
  * @author Jad Kreit
  */
 public class Movies {
     
-    String[] showings = new String[1];
+//    String[] showings = new String[1];
+//    
+//    private String movie1 = showings[0];
+//    Timings times;
     
-    private String movie1 = showings[0];
-    Timings times;
+    String title;
+    String movieDescription;
+    String[] timings;
+    
+    
+    
     
     
     
@@ -47,5 +56,11 @@ public class Movies {
 //    public void movieDescription() {
 //
 //    }
+
+    public Movies(String title, String movieDescription, String[] timings) {
+        this.title = title;
+        this.movieDescription = movieDescription;
+        this.timings = timings;
+    }
 
 }
