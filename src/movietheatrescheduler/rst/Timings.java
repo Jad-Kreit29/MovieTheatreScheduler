@@ -45,7 +45,7 @@ public class Timings {
             } else {
                 System.out.println("Not a vaild timing!");
             }
-        return ticketTime;
+            return ticketTime;
 
         } while (pass != 1);
     }

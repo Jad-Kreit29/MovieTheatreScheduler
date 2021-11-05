@@ -19,39 +19,33 @@ public class MovieTheatreSchedulerRST {
     public static void main(String[] args) {
         //Build Scanner
         Scanner in = new Scanner(System.in);
-        ArrayList<Movies> films=new ArrayList<>();
         //Set variable for making choices
+        String userExplination = "";
         int userChoice = 0;
+        int userTime = 0;
 
         //Welcome the user to the theatre
         System.out.println("Hello! Welcome to the Screenefy Movie Theatre. This is a brand new location, so we don\'t have many movies to offer right now!");
-        
-        
-        //Show the available movies
-        System.out.println("\nHere are the movies we have!\n\nSuper Mario Brothers: The Movie!\nFrogger Man\nBeniman Fanklin: A Much Sad Story");
-        //Since this is the only film currently, show availble times
-        System.out.println("\nHere are the avalable times:");
-//        Movies m1=new Movies();
-//        m1.times= new Timings("10:30 AM", "03:30 PM", "09:30 PM");
-//        films.add(m1);
-//        
-//        Movies m2=new Movies();
-//        m2.times=new Timings("11:00 AM", "05:00 PM", "08:30 PM");
-//        films.add(m2);
-//        
-//        for (Movies x:films){
-//            x.times.getTimes();
-//        }
-        Theatre t1=new Theatre();
-        t1.DisplayShows();
-        //Ask for which time they want to see
-        System.out.println("Which time do you want to see? (1, 2, 3)");
+        //Present the films and the timings to the user
+        System.out.println("\nHere's what we have! Choose a movie (1, 2, 3) and then enter a time (1, 2, 3, etc)");
+
+        Theatre t = new Theatre();
+        t.DisplayShows();
+
         userChoice = in.nextInt();
-        //String items = movieOneTime.UserInput(userChoice);
-        
-        //Display added items
-       // System.out.println("\nYour items: Super Mario Brothers: The Movie!" + "\t" + items + "\t" + "Price: $5.99");
-        
+        in.nextLine();
+        System.out.println("Do you want to hear what the movie is about? (y/n)");
+        userExplination = in.nextLine();
+        if (userExplination.toLowerCase().startsWith("y")) {
+            t.DisplayDescriptions(userChoice);
+        }
+
+        userTime = in.nextInt();
+        t.UserInput(userChoice, userTime);
+
+        //Ask for which time they want to see
+        System.out.println("If you don't know what the movie is about, type 'explain'");
+
         //Close Scanner
         in.close();
 
