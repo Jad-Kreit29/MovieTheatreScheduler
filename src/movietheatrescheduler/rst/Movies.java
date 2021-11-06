@@ -13,12 +13,14 @@ import java.util.*;
  */
 public class Movies {
 
+    //Make new variables for each movie's title, description, rating, and review
     String title;
     String movieDescription;
     String movieRating;
     String movieReview;
     String[] timings;
 
+    //Create a constructor that makes a blueprint with all of the new variables
     public Movies(String title, String movieDescription, String movieRating, String movieReview, String[] timings) {
         this.title = title;
         this.movieDescription = movieDescription;

@@ -22,7 +22,7 @@ public class Theatre {
         shows.add(new Movies("The Second Re-Awaking", "\nThe war is on. The hunt is real. And the truth is a lie. Nothing is spoken to anyone, and no one speaks to anyone.\nThe revolution is charging the fresh promsise of a new and better life.\nAll it takes is a single truth to unwind the more subtle truths.", "\nRating: PG-13", "\nNWT: 'War. War is terrible. This felt right out of George Orwell's 1984'", new String[]{"11:00 AM", "09:00 PM"}));
         shows.add(new Movies("Depressing Film: The 3 Hour Drama: Real Life Edition", "\nIt's been 15 years since Derek and his lover, Jane, had to seperate from each other due to the 1875 conflict.\nUpon their day of reconceliation, they find that things might not have been the way they wanted it to be.", "\nRating: S for Sad", "\nThe Verge: 'I cried so much through this, I needed my own reconcelliation with myself!'", new String[]{"03:00 PM", "05:30 PM", "08:00 PM", "11:00 PM"}));
     }
-    
+
     //Method for displaying the titles of each film along with their timings
     public void DisplayShows() {
         int counter = 1;
@@ -35,7 +35,7 @@ public class Theatre {
             System.out.println("\n");
         }
     }
-    
+
     //Method for deciding what time the user picked
     public String UserInput(int userChoice, int userTime) {
         String movieTime = "";
@@ -70,7 +70,7 @@ public class Theatre {
         }
         return movieTime;
     }
-    
+
     //Method for displaying the description, rating, and comment for each film
     public void DisplayDescriptions(int userChoice) {
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------");
