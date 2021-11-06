@@ -15,11 +15,15 @@ public class Movies {
 
     String title;
     String movieDescription;
+    String movieRating;
+    String movieReview;
     String[] timings;
 
-    public Movies(String title, String movieDescription, String[] timings) {
+    public Movies(String title, String movieDescription, String movieRating, String movieReview, String[] timings) {
         this.title = title;
         this.movieDescription = movieDescription;
+        this.movieRating = movieRating;
+        this.movieReview = movieReview;
         this.timings = timings;
     }
 

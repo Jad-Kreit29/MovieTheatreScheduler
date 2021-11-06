@@ -23,6 +23,7 @@ public class MovieTheatreSchedulerRST {
         String userExplination = "";
         int userChoice = 0;
         int userTime = 0;
+        String movieTime = "";
 
         //Welcome the user to the theatre
         System.out.println("Hello! Welcome to the Screenefy Movie Theatre. This is a brand new location, so we don\'t have many movies to offer right now!");
@@ -39,13 +40,12 @@ public class MovieTheatreSchedulerRST {
         if (userExplination.toLowerCase().startsWith("y")) {
             t.DisplayDescriptions(userChoice);
         }
-
+        
+        System.out.println("\nWhat time do you want to see this movie? (1, 2, 3, etc)");
         userTime = in.nextInt();
-        t.UserInput(userChoice, userTime);
-
-        //Ask for which time they want to see
-        System.out.println("If you don't know what the movie is about, type 'explain'");
-
+        movieTime = t.UserInput(userChoice, userTime);
+        System.out.println(movieTime);
+        
         //Close Scanner
         in.close();
 
