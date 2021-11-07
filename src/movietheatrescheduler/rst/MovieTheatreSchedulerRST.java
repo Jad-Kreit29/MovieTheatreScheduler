@@ -6,6 +6,7 @@
 package movietheatrescheduler.rst;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -15,8 +16,9 @@ public class MovieTheatreSchedulerRST {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //Build Scanner
         Scanner in = new Scanner(System.in);
 
