@@ -22,8 +22,10 @@ public class MovieTheatreSchedulerRST {
         
         //Set variable for making choices
         String userExplination = "";
+        String movieChoice = "";
         int userChoice = 0;
         int userTime = 0;
+        double moneyRequired = 0;
         String movieTime = "";
 
         //Build a new theatre object
@@ -57,8 +59,23 @@ public class MovieTheatreSchedulerRST {
         //Show the user the availbe screening options
         System.out.println("\nWe've got three screening options. Choose the one that you want! (1, 2, 3)");
         m.DisplayTickets();
-        userChoice = in.nextInt();
+        moneyRequired = in.nextInt();
+        moneyRequired = m.cost(moneyRequired);
         
+        //Decide what film the user picked
+        if (userChoice == 1) {
+            movieChoice = "Super Mario Brothers: The Movie!";
+        } else if (userChoice == 2) {
+            movieChoice = "The Second Re-Awaking";
+        } else if (userChoice == 3) {
+            movieChoice = "Depressing Film: The 3 Hour Drama: Real Life Edition";
+        }
+        
+        //Show the user what they've picked
+        System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "$" + moneyRequired);
+        
+        //Thank the user for coming
+        System.out.println("\nThank you so much for coming! We hope you have a great experience!");
         
         //Close Scanner
         in.close();

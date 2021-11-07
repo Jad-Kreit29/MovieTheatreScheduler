@@ -16,11 +16,24 @@ public class Tickets {
     String tixType;
     double tixCost;
     int tixNumber;
+    
+    //Make varaibles for all of the different age group tickets
+    double tixChild;
+    double tixTeen;
+    double tixAdult;
+    double tixElder;
 
     public Tickets(String tixType, double tixCost, int tixNumber) {
         this.tixType = tixType;
         this.tixCost = tixCost;
         this.tixNumber = tixNumber;
+    }
+
+    public Tickets(double tixChild, double tixTeen, double tixAdult, double tixElder) {
+        this.tixChild = tixChild;
+        this.tixTeen = tixTeen;
+        this.tixAdult = tixAdult;
+        this.tixElder = tixElder;
     }
 
 }
