@@ -19,21 +19,23 @@ public class MovieTheatreSchedulerRST {
     public static void main(String[] args) {
         //Build Scanner
         Scanner in = new Scanner(System.in);
-        
+
         //Set variable for making choices
         String userExplination = "";
         String movieChoice = "";
         int userChoice = 0;
         int userTime = 0;
-        double moneyRequired = 0;
+        double typeCost = 0;
+        double ageCost = 0;
+        double sum = 0;
         String movieTime = "";
 
         //Build a new theatre object
         Theatre t = new Theatre();
-        
+
         //Build a new money type
         Money m = new Money();
-        
+
         //Welcome the user to the theatre
         System.out.println("Hello! Welcome to the Screenefy Movie Theatre. This is a brand new location, so we don\'t have many movies to offer right now!");
         //Present the films and the timings to the user
@@ -55,12 +57,19 @@ public class MovieTheatreSchedulerRST {
 
         movieTime = t.UserInput(userChoice, userTime);
         System.out.println("\nTime: " + movieTime);
-        
+
         //Show the user the availbe screening options
         System.out.println("\nWe've got three screening options. Choose the one that you want! (1, 2, 3)");
-        m.DisplayTickets();
-        moneyRequired = in.nextInt();
-        moneyRequired = m.cost(moneyRequired);
+        m.DisplayTicketType();
+        typeCost = in.nextInt();
+        
+        //Show the user the different age group options
+        System.out.println("\nWe've got four age groups. Which one do you want? (1, 2, 3, 4)");
+        m.DisplayTicketAge();
+        ageCost = in.nextInt();
+        sum = m.cost(typeCost, ageCost);
+        
+        
         
         //Decide what film the user picked
         if (userChoice == 1) {
@@ -70,13 +79,13 @@ public class MovieTheatreSchedulerRST {
         } else if (userChoice == 3) {
             movieChoice = "Depressing Film: The 3 Hour Drama: Real Life Edition";
         }
-        
+
         //Show the user what they've picked
-        System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "$" + moneyRequired);
-        
+        System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "$" + sum);
+
         //Thank the user for coming
         System.out.println("\nThank you so much for coming! We hope you have a great experience!");
-        
+
         //Close Scanner
         in.close();
 

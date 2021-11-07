@@ -17,23 +17,22 @@ public class Tickets {
     double tixCost;
     int tixNumber;
     
-    //Make varaibles for all of the different age group tickets
-    double tixChild;
-    double tixTeen;
-    double tixAdult;
-    double tixElder;
+    //Make vairables for different age group ticket type
+    String tixAge;
+    double tixAgeCost;
+    
 
+    //Make varaibles for all of the different age group tickets
     public Tickets(String tixType, double tixCost, int tixNumber) {
         this.tixType = tixType;
         this.tixCost = tixCost;
         this.tixNumber = tixNumber;
     }
 
-    public Tickets(double tixChild, double tixTeen, double tixAdult, double tixElder) {
-        this.tixChild = tixChild;
-        this.tixTeen = tixTeen;
-        this.tixAdult = tixAdult;
-        this.tixElder = tixElder;
+    public Tickets(String tixAge, double tixAgeCost) {
+        this.tixAge = tixAge;
+        this.tixAgeCost = tixAgeCost;
     }
+    
 
 }
