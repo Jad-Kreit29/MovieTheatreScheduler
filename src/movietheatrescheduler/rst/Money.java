@@ -39,13 +39,13 @@ public class Money {
 
     public void DisplayTicketAge() {
         //Show first age group
-        System.out.println(tixAge.get(0).tixAge + "\t$" + tixAge.get(0).tixAgeCost);
+        System.out.println(tixAge.get(0).tixAge + "\t\t$" + tixAge.get(0).tixAgeCost);
         //Show second age group
-        System.out.println(tixAge.get(1).tixAge + "\t$" + tixAge.get(1).tixAgeCost);
+        System.out.println(tixAge.get(1).tixAge + "\t\t$" + tixAge.get(1).tixAgeCost);
         //Show third age group
-        System.out.println(tixAge.get(2).tixAge + "\t$" + tixAge.get(2).tixAgeCost);
+        System.out.println(tixAge.get(2).tixAge + "\t\t$" + tixAge.get(2).tixAgeCost);
         //Show fourth age group
-        System.out.println(tixAge.get(3).tixAge + "\t$" + tixAge.get(3).tixAgeCost);
+        System.out.println(tixAge.get(3).tixAge + "\t\t$" + tixAge.get(3).tixAgeCost);
     }
 
     public double cost(double typeCost, double ageCost) {
