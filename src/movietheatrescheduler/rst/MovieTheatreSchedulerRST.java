@@ -115,7 +115,7 @@ public class MovieTheatreSchedulerRST {
             //Ask how many of those tickets the user will be purchasing
             System.out.println("\nHow many of those tickets will you buy?");
             quantity = in.nextInt();
-            sum = sum * quantity;
+            sum = (int) sum * quantity;
 
             //Show the user what they've picked
             System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "X" + quantity + " " + ageGroup + " " + screenType + ":\t$" + sum);

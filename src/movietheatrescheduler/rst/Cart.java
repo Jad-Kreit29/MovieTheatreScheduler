@@ -36,9 +36,9 @@ public class Cart {
         System.out.println("\n\n\n\n-------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("RECIPT");
         for (int c = 0; c < cart1.size(); c++) {
-            System.out.println(cart1.get(c).movieChoice + "\t" + cart1.get(c).movieTime + "\tX" + cart2.get(c).quantity + " " + cart1.get(c).ageGroup + " " + cart1.get(c).screenType + "\t$" + " " + cart2.get(c).sum);
+            System.out.println(cart1.get(c).movieChoice + "\t" + cart1.get(c).movieTime + "\tX" + cart2.get(c).quantity + " " + cart1.get(c).ageGroup + " " + cart1.get(c).screenType + "\t$" + cart2.get(c).sum);
         }
-        System.out.println("TOTAL: " + sum);
+        System.out.println("\n\n\nTOTAL: " + "$" + sum);
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
