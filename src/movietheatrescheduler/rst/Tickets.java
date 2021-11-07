@@ -16,11 +16,10 @@ public class Tickets {
     String tixType;
     double tixCost;
     int tixNumber;
-    
+
     //Make vairables for different age group ticket type
     String tixAge;
     double tixAgeCost;
-    
 
     //Make varaibles for all of the different age group tickets
     public Tickets(String tixType, double tixCost, int tixNumber) {
@@ -33,6 +32,5 @@ public class Tickets {
         this.tixAge = tixAge;
         this.tixAgeCost = tixAgeCost;
     }
-    
 
 }
