@@ -64,9 +64,9 @@ public class MovieTheatreSchedulerRST {
             int movieChoiceCheck = 0;
             do {
                 userChoice = in.nextInt();
-                if (userChoice > 3) {
-                    System.out.println("This movie doesn\'t exist!");
-                } else {
+                if (userChoice > 3 || userChoice < 1) {
+                    System.out.println("This movie doesn\'t exist! Pick one we have listed");
+                } else if (userChoice == 1 || userChoice == 2 || userChoice == 3) {
                     movieChoiceCheck++;
                 }
             } while (movieChoiceCheck != 1);
@@ -88,11 +88,9 @@ public class MovieTheatreSchedulerRST {
                 movieChoice = "Depressing Film: The 3 Hour Drama: Real Life Edition";
             }
             //TimeUnit.SECONDS.sleep(1);
-            
-            
+
             System.out.println("\nWhat time do you want to see this movie? (1, 2, 3, etc)");
-            
-            
+
             do {
                 userTime = in.nextInt();
                 movieTime = t.UserInput(userChoice, userTime);
@@ -106,7 +104,16 @@ public class MovieTheatreSchedulerRST {
             //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nWe've got three screening options. Choose the one that you want! (1, 2, 3)");
             m.DisplayTicketType();
-            typeCost = in.nextInt();
+
+            int check2 = 0;
+            do {
+                typeCost = in.nextInt();
+                if (typeCost == 1 || typeCost == 2 || typeCost == 3) {
+                    check2++;
+                } else if (typeCost > 3 || typeCost < 1) {
+                    System.out.println("That screening option doesn't exist. Pick one that's lised!");
+                }
+            } while (check2 != 1);
 
             //Decide what screen type the user picked
             if (typeCost == 1) {
@@ -121,8 +128,17 @@ public class MovieTheatreSchedulerRST {
             //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nWe've got four age groups. Which one do you want? (1, 2, 3, 4)");
             m.DisplayTicketAge();
-            //Figure out if the user has inputed more tickets than what is available
-            ageCost = in.nextInt();
+
+            int check3 = 0;
+            do {
+                ageCost = in.nextInt();
+                if (ageCost == 1 || ageCost == 2 || ageCost == 3 || ageCost == 4) {
+                    check3++;
+                } else if (ageCost > 4 || ageCost < 1) {
+                    System.out.println("We don't have that age group. Pick one we have listed!");
+                }
+            } while (check3 != 1);
+
             sum = m.cost(typeCost, ageCost);
 
             //Decide what age group the user picked
@@ -137,6 +153,7 @@ public class MovieTheatreSchedulerRST {
             }
 
             //Ask how many of those tickets the user will be purchasing
+            //Figure out if the user has inputed more tickets than what is available
             //TimeUnit.SECONDS.sleep(1);
             boolean test = false;
             do {
@@ -156,10 +173,17 @@ public class MovieTheatreSchedulerRST {
             //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nDo you want to buy another ticket for something else? (y/n)");
             in.nextLine();
-            repeatChoice = in.nextLine();
-            if (repeatChoice.toLowerCase().startsWith("n")) {
-                check++;
-            }
+
+            int check4 = 0;
+            do {
+                repeatChoice = in.nextLine();
+                if (repeatChoice.toLowerCase().startsWith("n")) {
+                    check4++;
+                    check++;
+                } else if (!repeatChoice.toLowerCase().startsWith("y") || !repeatChoice.toLowerCase().startsWith("n")) {
+                    System.out.println("\nWhat do you mean? Tell us a Yes or No answer");
+                }
+            } while (check4 != 1);
 
         } while (check != 1);
 
