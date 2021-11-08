@@ -63,8 +63,10 @@ public class Theatre {
             if (userTime == 1) {
                 movieTime = "03:300 PM";
             } else if (userTime == 2) {
-                movieTime = "08:00 PM";
+                movieTime = "05:30 PM";
             } else if (userTime == 3) {
+                movieTime = "08:00 PM";
+            } else if (userTime == 4) {
                 movieTime = "11:00 PM";
             }
         }

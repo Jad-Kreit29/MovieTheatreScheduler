@@ -86,4 +86,34 @@ public class Money {
 
     }
 
+    public boolean TixAvailable(int quantity, double typeCost) {
+        boolean no = false;
+
+        if (typeCost == 1) {
+            if (quantity > tixType.get(0).tixNumber) {
+                System.out.println("\nWe don't have that many tickets! Pick a smaller number");
+                no = false;
+            } else {
+                no = true;
+            }
+        } else if (typeCost == 2) {
+            if (quantity > tixType.get(1).tixNumber) {
+                System.out.println("\nWe don't have that many tickets! Pick a smaller number");
+                no = false;
+            } else {
+                no = true;
+            }
+        } else if (typeCost == 3) {
+            if (quantity > tixType.get(2).tixNumber) {
+                System.out.println("\nWe don't have that many tickets! Pick a smaller number");
+                no = false;
+            } else {
+                no = true;
+            }
+        }
+        
+        return no;
+        
+    }
+
 }

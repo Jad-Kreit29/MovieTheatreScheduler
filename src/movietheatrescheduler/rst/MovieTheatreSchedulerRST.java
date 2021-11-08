@@ -51,8 +51,10 @@ public class MovieTheatreSchedulerRST {
         //Create a while loop to keep program running so that user can add multiple tickets if they want
         do {
             //Welcome the user to the theatre
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("Hello! Welcome to the Screenefy Movie Theatre. This is a brand new location, so we don\'t have many movies to offer right now!");
             //Present the films and the timings to the user
+            //TimeUnit.SECONDS.sleep(2);
             System.out.println("\nHere's what we have! Choose a movie (1, 2, 3) and then enter a time (1, 2, 3, etc)");
 
             //Run the DisplayShows method
@@ -60,6 +62,7 @@ public class MovieTheatreSchedulerRST {
 
             userChoice = in.nextInt();
             in.nextLine();
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("Do you want to hear what the movie is about? (y/n)");
             userExplination = in.nextLine();
             if (userExplination.toLowerCase().startsWith("y")) {
@@ -74,7 +77,7 @@ public class MovieTheatreSchedulerRST {
             } else if (userChoice == 3) {
                 movieChoice = "Depressing Film: The 3 Hour Drama: Real Life Edition";
             }
-
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nWhat time do you want to see this movie? (1, 2, 3, etc)");
             userTime = in.nextInt();
 
@@ -82,6 +85,7 @@ public class MovieTheatreSchedulerRST {
             System.out.println("\nTime: " + movieTime);
 
             //Show the user the availbe screening options
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nWe've got three screening options. Choose the one that you want! (1, 2, 3)");
             m.DisplayTicketType();
             typeCost = in.nextInt();
@@ -96,8 +100,10 @@ public class MovieTheatreSchedulerRST {
             }
 
             //Show the user the different age group options
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nWe've got four age groups. Which one do you want? (1, 2, 3, 4)");
             m.DisplayTicketAge();
+            //Figure out if the user has inputed more tickets than what is available
             ageCost = in.nextInt();
             sum = m.cost(typeCost, ageCost);
 
@@ -113,17 +119,24 @@ public class MovieTheatreSchedulerRST {
             }
 
             //Ask how many of those tickets the user will be purchasing
-            System.out.println("\nHow many of those tickets will you buy?");
-            quantity = in.nextInt();
+            //TimeUnit.SECONDS.sleep(1);
+            boolean test = false;
+            do {
+                System.out.println("\nHow many of those tickets will you buy?");
+                quantity = in.nextInt();
+                test = m.TixAvailable(quantity, typeCost);
+            } while (!test);
             sum = (int) sum * quantity;
 
             //Show the user what they've picked
+            //TimeUnit.SECONDS.sleep(2);
             System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "X" + quantity + " " + ageGroup + " " + screenType + ":\t$" + sum);
 
             c.CartAdder(movieChoice, movieTime, ageGroup, screenType, quantity, sum);
 
             //Ask if the user wants to go through and purchase another ticket
-            System.out.println("Do you want to buy another ticket for something else? (y/n)");
+            //TimeUnit.SECONDS.sleep(1);
+            System.out.println("\nDo you want to buy another ticket for something else? (y/n)");
             in.nextLine();
             repeatChoice = in.nextLine();
             if (repeatChoice.toLowerCase().startsWith("n")) {
@@ -133,6 +146,7 @@ public class MovieTheatreSchedulerRST {
         } while (check != 1);
 
         //Thank the user for coming
+        //TimeUnit.SECONDS.sleep(2);
         c.DisplayCart();
         System.out.println("\nThank you so much for coming! We hope you have a great experience!");
 
