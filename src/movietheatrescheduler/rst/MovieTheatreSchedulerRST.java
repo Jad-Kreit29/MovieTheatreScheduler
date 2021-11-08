@@ -36,7 +36,7 @@ public class MovieTheatreSchedulerRST {
         double ageCost = 0;
         double sum = 0;
 
-        //Variable for quitting the loop
+        //Variable for quitting the main loop of the program
         int check = 0;
 
         //Build a new theatre object
@@ -55,12 +55,22 @@ public class MovieTheatreSchedulerRST {
             System.out.println("Hello! Welcome to the Screenefy Movie Theatre. This is a brand new location, so we don\'t have many movies to offer right now!");
             //Present the films and the timings to the user
             //TimeUnit.SECONDS.sleep(2);
-            System.out.println("\nHere's what we have! Choose a movie (1, 2, 3) and then enter a time (1, 2, 3, etc)");
+            System.out.println("\nHere's what we have! Choose a movie that you want to see (1, 2, 3)");
 
             //Run the DisplayShows method
             t.DisplayShows();
 
-            userChoice = in.nextInt();
+            //Variable for checking the movie the user has picked.
+            int movieChoiceCheck = 0;
+            do {
+                userChoice = in.nextInt();
+                if (userChoice > 3) {
+                    System.out.println("This movie doesn\'t exist!");
+                } else {
+                    movieChoiceCheck++;
+                }
+            } while (movieChoiceCheck != 1);
+
             in.nextLine();
             //TimeUnit.SECONDS.sleep(1);
             System.out.println("Do you want to hear what the movie is about? (y/n)");
@@ -78,10 +88,18 @@ public class MovieTheatreSchedulerRST {
                 movieChoice = "Depressing Film: The 3 Hour Drama: Real Life Edition";
             }
             //TimeUnit.SECONDS.sleep(1);
+            
+            
             System.out.println("\nWhat time do you want to see this movie? (1, 2, 3, etc)");
-            userTime = in.nextInt();
-
-            movieTime = t.UserInput(userChoice, userTime);
+            
+            
+            do {
+                userTime = in.nextInt();
+                movieTime = t.UserInput(userChoice, userTime);
+                if (!movieTime.toUpperCase().endsWith("M")) {
+                    System.out.println("Time doesn't exist! Pick a different time");
+                }
+            } while (!movieTime.toUpperCase().endsWith("M"));
             System.out.println("\nTime: " + movieTime);
 
             //Show the user the availbe screening options
