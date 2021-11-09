@@ -12,8 +12,14 @@ import java.util.*;
  * @author Jad Kreit
  */
 public class SeatingArrangement {
-    
-    
-    
-    
+
+    public void DisplaySeats() {
+        char seatRow = 'A';
+        for (int i = 0; i < 4; i++) {
+            System.out.println(seatRow + "  " + "X X X X .... X X X X");
+            seatRow++;
+        }
+        System.out.println("   1 2 3 4 .... 22 23 24 25");
+    }
+
 }

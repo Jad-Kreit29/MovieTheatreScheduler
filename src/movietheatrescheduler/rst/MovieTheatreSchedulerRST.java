@@ -49,13 +49,16 @@ public class MovieTheatreSchedulerRST {
         //Build a new cart
         Cart c = new Cart();
 
+        //Build a new seaing arrangement
+        SeatingArrangement s = new SeatingArrangement();
+
         //Create a while loop to keep program running so that user can add multiple tickets if they want
         do {
             //Welcome the user to the theatre
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("Hello! Welcome to the Screenefy Movie Theatre. This is a brand new location, so we don\'t have many movies to offer right now!");
             //Present the films and the timings to the user
-            TimeUnit.SECONDS.sleep(2);
+            //TimeUnit.SECONDS.sleep(2);
             System.out.println("\nHere's what we have! Choose a movie that you want to see (1, 2, 3)");
 
             //Run the DisplayShows method
@@ -73,7 +76,7 @@ public class MovieTheatreSchedulerRST {
             } while (movieChoiceCheck != 1);
 
             in.nextLine();
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nDo you want to hear what the movie is about? (y/n)");
             userExplination = in.nextLine();
             if (userExplination.toLowerCase().startsWith("y")) {
@@ -88,7 +91,7 @@ public class MovieTheatreSchedulerRST {
             } else if (userChoice == 3) {
                 movieChoice = "Depressing Film: The 3 Hour Drama: Real Life Edition";
             }
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
 
             System.out.println("\nWhat time do you want to see this movie? (1, 2, 3, etc)");
 
@@ -102,7 +105,7 @@ public class MovieTheatreSchedulerRST {
             System.out.println("\nTime: " + movieTime);
 
             //Show the user the availbe screening options
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nWe've got three screening options. Choose the one that you want! (1, 2, 3)");
             m.DisplayTicketType();
 
@@ -126,7 +129,7 @@ public class MovieTheatreSchedulerRST {
             }
 
             //Show the user the different age group options
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nWe've got four age groups. Which one do you want? (1, 2, 3, 4)");
             m.DisplayTicketAge();
 
@@ -155,7 +158,7 @@ public class MovieTheatreSchedulerRST {
 
             //Ask how many of those tickets the user will be purchasing
             //Figure out if the user has inputed more tickets than what is available
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             boolean test = false;
             do {
                 System.out.println("\nHow many of those tickets will you buy?");
@@ -164,14 +167,38 @@ public class MovieTheatreSchedulerRST {
             } while (!test);
             sum = (int) sum * quantity;
 
+            //Show possible seating arrangment and have the user pick a seat for as many tickets as they will buy
+            System.out.println("\nHere are our seating arrangement! Our theatre is able to hold 100 seats per screen. Type the Seating Row (A, B, C, D) and then the seat number (1...25)");
+
+            s.DisplaySeats();
+
+            int check5 = 0;
+
+            do {
+                StringTokenizer line = new StringTokenizer(in.nextLine());
+                String row = (line.nextToken());
+                row.toUpperCase();
+                int seat = Integer.parseInt(line.nextToken());
+
+                if (row != "A" || row != "B" || row != "C" || row != "D") {
+                    System.out.println("\nThis row doesn't exist. Pick one that we have!");
+                }
+                if (seat > 25 || seat < 1) {
+                    System.out.println("\nThis seat doesn't exist. Pick one that we have!");
+                }
+                if ((row == "A" || row == "B" || row == "C" || row == "D") && (seat >= 1 && seat <= 25)) {
+                    check5++;
+                }
+            } while (check5 != 1);
+
             //Show the user what they've picked
-            TimeUnit.SECONDS.sleep(2);
+            //TimeUnit.SECONDS.sleep(2);
             System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "X" + quantity + " " + ageGroup + " " + screenType + ":\t$" + sum);
 
             c.CartAdder(movieChoice, movieTime, ageGroup, screenType, quantity, sum);
 
             //Ask if the user wants to go through and purchase another ticket
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nDo you want to buy another ticket for something else? (y/n)");
             in.nextLine();
 
@@ -187,25 +214,25 @@ public class MovieTheatreSchedulerRST {
             } while (check4 != 1);
 
         } while (check != 1);
-        
-        TimeUnit.SECONDS.sleep(1);
+
+        //TimeUnit.SECONDS.sleep(1);
         //Ask the user to input the amount of money they have, and see if they can pay the price
         System.out.println("\nYour total is up to: $" + sum + " How much money are you going to pay?");
 
-        int check5 = 0;
+        int check6 = 0;
         do {
             userMoney = in.nextDouble();
             if (userMoney < sum) {
                 System.out.println("This is insufficient amount of money. Please pay the remainder of the amount required");
             } else if (userMoney >= sum) {
-                TimeUnit.SECONDS.sleep(2);
+                //TimeUnit.SECONDS.sleep(2);
                 System.out.println("\nTRANSACTION COMPLETE...");
-                check5++;
+                check6++;
             }
-        } while (check5 != 1);
+        } while (check6 != 1);
 
         //Thank the user for coming
-        TimeUnit.SECONDS.sleep(4);
+        //TimeUnit.SECONDS.sleep(4);
         c.DisplayCart();
         System.out.println("\nThank you so much for coming! We hope you have a great experience!");
 
