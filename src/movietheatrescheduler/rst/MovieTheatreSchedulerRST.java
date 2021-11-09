@@ -174,25 +174,34 @@ public class MovieTheatreSchedulerRST {
 
             s.DisplaySeats();
 
-            int check5 = 0;
+            //Create Array List for seat row and seat number
+            ArrayList<String> userSeatsRow = new ArrayList<>();
+            ArrayList<Integer> userSeatNumber = new ArrayList<>();
 
-            do {
-                StringTokenizer line = new StringTokenizer(in.nextLine());
-                String row = (line.nextToken());
-                row.toUpperCase();
-                int seat = Integer.parseInt(line.nextToken());
+            for (int i = 0; i < quantity; i++) {
+                System.out.println("Pick the seating option for ticket " + i + 1);
+                int check5 = 0;
+                do {
+                    StringTokenizer line = new StringTokenizer(in.nextLine());
+                    String row = (line.nextToken());
+                    row.toUpperCase();
+                    int seat = Integer.parseInt(line.nextToken());
 
-                if ((row.equals("A") || row.equals("B") || row.equals("C") || row.equals("D")) && (seat >= 1 && seat <= 25)) {
-                    check5++;
-                }
+                    if ((row.equals("A") || row.equals("B") || row.equals("C") || row.equals("D")) && (seat >= 1 && seat <= 25)) {
+                        check5++;
+                        userSeatsRow.add(row);
+                        userSeatNumber.add(seat);
+                    }
 
-                if (!row.equals("A") && !row.equals("B") && !row.equals("C") && !row.equals("D")) {
-                    System.out.println("\nThis row doesn't exist. Pick one that we have!");
-                }
-                if (seat > 25 || seat < 1) {
-                    System.out.println("\nThis seat doesn't exist. Pick one that we have!");
-                }
-            } while (check5 != 1);
+                    if (!row.equals("A") && !row.equals("B") && !row.equals("C") && !row.equals("D")) {
+                        System.out.println("\nThis row doesn't exist. Pick one that we have!");
+                    }
+                    if (seat > 25 || seat < 1) {
+                        System.out.println("\nThis seat doesn't exist. Pick one that we have!");
+                    }
+                } while (check5 != 1);
+
+            }
 
             //Show the user what they've picked
             //TimeUnit.SECONDS.sleep(2);
