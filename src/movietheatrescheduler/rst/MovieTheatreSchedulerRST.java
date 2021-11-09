@@ -167,6 +167,8 @@ public class MovieTheatreSchedulerRST {
             } while (!test);
             sum = (int) sum * quantity;
 
+            in.nextLine();
+
             //Show possible seating arrangment and have the user pick a seat for as many tickets as they will buy
             System.out.println("\nHere are our seating arrangement! Our theatre is able to hold 100 seats per screen. Type the Seating Row (A, B, C, D) and then the seat number (1...25)");
 
@@ -180,14 +182,15 @@ public class MovieTheatreSchedulerRST {
                 row.toUpperCase();
                 int seat = Integer.parseInt(line.nextToken());
 
-                if (row != "A" || row != "B" || row != "C" || row != "D") {
+                if ((row.equals("A") || row.equals("B") || row.equals("C") || row.equals("D")) && (seat >= 1 && seat <= 25)) {
+                    check5++;
+                }
+
+                if (!row.equals("A") && !row.equals("B") && !row.equals("C") && !row.equals("D")) {
                     System.out.println("\nThis row doesn't exist. Pick one that we have!");
                 }
                 if (seat > 25 || seat < 1) {
                     System.out.println("\nThis seat doesn't exist. Pick one that we have!");
-                }
-                if ((row == "A" || row == "B" || row == "C" || row == "D") && (seat >= 1 && seat <= 25)) {
-                    check5++;
                 }
             } while (check5 != 1);
 
