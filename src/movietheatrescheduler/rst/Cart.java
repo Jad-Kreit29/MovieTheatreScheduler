@@ -20,30 +20,24 @@ public class Cart {
     double sum;
 
     //Create an Array List of type String and Int to store the information of each ticket the user chose
-    ArrayList<CartInformation> cart1 = new ArrayList<>();
-    ArrayList<CartInformation> cart2 = new ArrayList<>();
+    ArrayList<CartInformation> cart = new ArrayList<>();
 
-    public void CartAdder(String movieChoice, String movieTime, String ageGroup, String screenType, int quantity, double sum, String row, int seat) {
-        cart1.add(new CartInformation(movieChoice, movieTime, ageGroup, screenType, row));
-        cart2.add(new CartInformation(quantity, sum, seat));
+    public void CartAdder(String movieChoice, String movieTime, String ageGroup, String screenType, double sum, String row, int seat) {
+        cart.add(new CartInformation(movieChoice, movieTime, ageGroup, screenType, row, seat, sum));
     }
 
     public void DisplayCart() {
         double sum = 0;
-        for (int s = 0; s < cart2.size(); s++) {
-            sum += cart2.get(s).sum;
+        for (int s = 0; s < cart.size(); s++) {
+            sum += cart.get(s).sum;
         }
         System.out.println("\n\n\n\n-------------------------------------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("RECIPT");
-        for (int c = 0; c < cart1.size(); c++) {
-            System.out.println(cart1.get(c).movieChoice + "\t" + cart1.get(c).movieTime + "\tX" + cart2.get(c).quantity + " " + cart1.get(c).ageGroup + " " + cart1.get(c).screenType + "\t$" + cart2.get(c).sum);
+        for (int c = 0; c < cart.size(); c++) {
+            System.out.println(cart.get(c).movieChoice + "\t" + cart.get(c).movieTime + "\t" + cart.get(c).ageGroup + " " + cart.get(c).screenType + "\t$" + cart.get(c).sum + "\tSeat: " + cart.get(c).row + cart.get(c).seat);
         }
         System.out.println("\n\n\nTOTAL: " + "$" + sum);
-        for (int se = 0; se < cart1.size(); se++) {
-            System.out.println("\n" + cart1.get(se).row + " " + cart2.get(se).seat);
-        }
-        
-        
+
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 

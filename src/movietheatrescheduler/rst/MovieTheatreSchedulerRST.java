@@ -36,6 +36,7 @@ public class MovieTheatreSchedulerRST {
         double typeCost = 0;
         double ageCost = 0;
         double sum = 0;
+        double sumTot = 0;
         
         String row = "";
         int seat = 0;
@@ -168,7 +169,7 @@ public class MovieTheatreSchedulerRST {
                 quantity = in.nextInt();
                 test = m.TixAvailable(quantity, typeCost);
             } while (!test);
-            sum = (int) sum * quantity;
+            sumTot = sum * quantity;
 
             in.nextLine();
 
@@ -208,9 +209,9 @@ public class MovieTheatreSchedulerRST {
 
             //Show the user what they've picked
             //TimeUnit.SECONDS.sleep(2);
-            System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "X" + quantity + " " + ageGroup + " " + screenType + ":\t$" + sum);
+            System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "X" + quantity + " " + ageGroup + " " + screenType + ":\t$" + sumTot);
             for (int i=0;i<userSeatsRow.size();i++){
-                c.CartAdder(movieChoice, movieTime, ageGroup, screenType, quantity, sum, userSeatsRow.get(i), userSeatNumber.get(i));
+                c.CartAdder(movieChoice, movieTime, ageGroup, screenType, sum, userSeatsRow.get(i), userSeatNumber.get(i));
                 
             }
 
@@ -234,7 +235,7 @@ public class MovieTheatreSchedulerRST {
 
         //TimeUnit.SECONDS.sleep(1);
         //Ask the user to input the amount of money they have, and see if they can pay the price
-        System.out.println("\nYour total is up to: $" + sum + " How much money are you going to pay?");
+        System.out.println("\nYour total is up to: $" + sumTot + " How much money are you going to pay?");
 
         int check6 = 0;
         do {

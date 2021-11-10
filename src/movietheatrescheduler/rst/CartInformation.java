@@ -17,21 +17,16 @@ public class CartInformation {
     String screenType;
     String row;
     int seat;
-    int quantity;
     double sum;
 
-    public CartInformation(String movieChoice, String movieTime, String ageGroup, String screenType, String row) {
+    public CartInformation(String movieChoice, String movieTime, String ageGroup, String screenType, String row, int seat, double sum) {
         this.movieChoice = movieChoice;
         this.movieTime = movieTime;
         this.ageGroup = ageGroup;
         this.screenType = screenType;
         this.row = row;
-    }
-
-    public CartInformation(int quantity, double sum, int seat) {
-        this.quantity = quantity;
-        this.sum = sum;
         this.seat = seat;
+        this.sum = sum;
     }
 
 }
