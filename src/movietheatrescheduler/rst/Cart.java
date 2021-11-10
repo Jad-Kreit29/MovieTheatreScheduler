@@ -23,9 +23,9 @@ public class Cart {
     ArrayList<CartInformation> cart1 = new ArrayList<>();
     ArrayList<CartInformation> cart2 = new ArrayList<>();
 
-    public void CartAdder(String movieChoice, String movieTime, String ageGroup, String screenType, int quantity, double sum) {
-        cart1.add(new CartInformation(movieChoice, movieTime, ageGroup, screenType));
-        cart2.add(new CartInformation(quantity, sum));
+    public void CartAdder(String movieChoice, String movieTime, String ageGroup, String screenType, int quantity, double sum, String row, int seat) {
+        cart1.add(new CartInformation(movieChoice, movieTime, ageGroup, screenType, row));
+        cart2.add(new CartInformation(quantity, sum, seat));
     }
 
     public void DisplayCart() {
@@ -39,6 +39,11 @@ public class Cart {
             System.out.println(cart1.get(c).movieChoice + "\t" + cart1.get(c).movieTime + "\tX" + cart2.get(c).quantity + " " + cart1.get(c).ageGroup + " " + cart1.get(c).screenType + "\t$" + cart2.get(c).sum);
         }
         System.out.println("\n\n\nTOTAL: " + "$" + sum);
+        for (int se = 0; se < cart1.size(); se++) {
+            System.out.println("\n" + cart1.get(se).row + " " + cart2.get(se).seat);
+        }
+        
+        
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 

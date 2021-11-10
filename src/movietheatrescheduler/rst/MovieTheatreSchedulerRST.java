@@ -36,6 +36,9 @@ public class MovieTheatreSchedulerRST {
         double typeCost = 0;
         double ageCost = 0;
         double sum = 0;
+        
+        String row = "";
+        int seat = 0;
 
         //Variable for quitting the main loop of the program
         int check = 0;
@@ -183,9 +186,9 @@ public class MovieTheatreSchedulerRST {
                 int check5 = 0;
                 do {
                     StringTokenizer line = new StringTokenizer(in.nextLine());
-                    String row = (line.nextToken());
+                    row = (line.nextToken());
                     row.toUpperCase();
-                    int seat = Integer.parseInt(line.nextToken());
+                    seat = Integer.parseInt(line.nextToken());
 
                     if ((row.equals("A") || row.equals("B") || row.equals("C") || row.equals("D")) && (seat >= 1 && seat <= 25)) {
                         check5++;
@@ -206,13 +209,15 @@ public class MovieTheatreSchedulerRST {
             //Show the user what they've picked
             //TimeUnit.SECONDS.sleep(2);
             System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "X" + quantity + " " + ageGroup + " " + screenType + ":\t$" + sum);
-
-            c.CartAdder(movieChoice, movieTime, ageGroup, screenType, quantity, sum);
+            for (int i=0;i<userSeatsRow.size();i++){
+                c.CartAdder(movieChoice, movieTime, ageGroup, screenType, quantity, sum, userSeatsRow.get(i), userSeatNumber.get(i));
+                
+            }
 
             //Ask if the user wants to go through and purchase another ticket
             //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nDo you want to buy another ticket for something else? (y/n)");
-            in.nextLine();
+
 
             int check4 = 0;
             do {
