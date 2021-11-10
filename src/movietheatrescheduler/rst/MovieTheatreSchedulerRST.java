@@ -37,9 +37,14 @@ public class MovieTheatreSchedulerRST {
         double ageCost = 0;
         double sum = 0;
         double sumTot = 0;
-        
+
         String row = "";
         int seat = 0;
+        
+        
+        ArrayList<Double> totalReciptCost = new ArrayList<>();
+        
+        
 
         //Variable for quitting the main loop of the program
         int check = 0;
@@ -134,7 +139,7 @@ public class MovieTheatreSchedulerRST {
 
             //Show the user the different age group options
             //TimeUnit.SECONDS.sleep(1);
-            System.out.println("\nWe've got four age groups. Which one do you want? (1, 2, 3, 4)");
+            System.out.println("\nWe've got four age groups. Elders get a $1.20 off their price! Which one do you want? (1, 2, 3, 4)");
             m.DisplayTicketAge();
 
             int check3 = 0;
@@ -169,7 +174,7 @@ public class MovieTheatreSchedulerRST {
                 quantity = in.nextInt();
                 test = m.TixAvailable(quantity, typeCost);
             } while (!test);
-            sumTot = sum * quantity;
+            totalReciptCost.add(sumTot = sum * quantity);
 
             in.nextLine();
 
@@ -182,8 +187,8 @@ public class MovieTheatreSchedulerRST {
             ArrayList<String> userSeatsRow = new ArrayList<>();
             ArrayList<Integer> userSeatNumber = new ArrayList<>();
 
-            for (int i = 0; i < quantity; i++) {
-                System.out.println("Pick the seating option for ticket " + i + 1);
+            for (int i = 1; i <= quantity; i++) {
+                System.out.println("Pick the seating option for ticket " + i);
                 int check5 = 0;
                 do {
                     StringTokenizer line = new StringTokenizer(in.nextLine());
@@ -204,21 +209,19 @@ public class MovieTheatreSchedulerRST {
                         System.out.println("\nThis seat doesn't exist. Pick one that we have!");
                     }
                 } while (check5 != 1);
-
             }
 
             //Show the user what they've picked
             //TimeUnit.SECONDS.sleep(2);
             System.out.println("\nAlright! Here's what you'll be seeing:\n\n" + movieChoice + "\t" + movieTime + "\t" + "X" + quantity + " " + ageGroup + " " + screenType + ":\t$" + sumTot);
-            for (int i=0;i<userSeatsRow.size();i++){
+            for (int i = 0; i < userSeatsRow.size(); i++) {
                 c.CartAdder(movieChoice, movieTime, ageGroup, screenType, sum, userSeatsRow.get(i), userSeatNumber.get(i));
-                
+
             }
 
             //Ask if the user wants to go through and purchase another ticket
             //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nDo you want to buy another ticket for something else? (y/n)");
-
 
             int check4 = 0;
             do {
@@ -226,23 +229,32 @@ public class MovieTheatreSchedulerRST {
                 if (repeatChoice.toLowerCase().startsWith("n")) {
                     check4++;
                     check++;
-                } else if (!repeatChoice.toLowerCase().startsWith("y") || !repeatChoice.toLowerCase().startsWith("n")) {
+                } else if (repeatChoice.toLowerCase().startsWith("y")) {
+                    check4++;
+                } else if (!repeatChoice.toLowerCase().startsWith("y") && !repeatChoice.toLowerCase().startsWith("n")) {
                     System.out.println("\nWhat do you mean? Tell us a Yes or No answer");
                 }
             } while (check4 != 1);
 
         } while (check != 1);
-
+        
+        double totalCost = 0;
+        
+        for (double z:totalReciptCost) {
+            totalCost += z;
+        }
+        
+        
         //TimeUnit.SECONDS.sleep(1);
         //Ask the user to input the amount of money they have, and see if they can pay the price
-        System.out.println("\nYour total is up to: $" + sumTot + " How much money are you going to pay?");
+        System.out.println("\nYour total is up to: $" + totalCost + " How much money are you going to pay?");
 
         int check6 = 0;
         do {
             userMoney = in.nextDouble();
-            if (userMoney < sum) {
+            if (userMoney < sumTot) {
                 System.out.println("This is insufficient amount of money. Please pay the remainder of the amount required");
-            } else if (userMoney >= sum) {
+            } else if (userMoney >= sumTot) {
                 //TimeUnit.SECONDS.sleep(2);
                 System.out.println("\nTRANSACTION COMPLETE...");
                 check6++;

@@ -30,22 +30,22 @@ public class Money {
 
     public void DisplayTicketType() {
         //Show first ticket type
-        System.out.println(tixType.get(0).tixType + "\t$" + tixType.get(0).tixCost + "\tTickets Available: " + tixType.get(0).tixNumber);
+        System.out.println("1) " + tixType.get(0).tixType + "\t$" + tixType.get(0).tixCost + "\tTickets Available: " + tixType.get(0).tixNumber);
         //Show second ticket type
-        System.out.println(tixType.get(1).tixType + "\t\t$" + tixType.get(1).tixCost + "\tTickets Available: " + tixType.get(1).tixNumber);
+        System.out.println("2) " + tixType.get(1).tixType + "\t\t$" + tixType.get(1).tixCost + "\tTickets Available: " + tixType.get(1).tixNumber);
         //Show third ticket type
-        System.out.println(tixType.get(2).tixType + "\t\t$" + tixType.get(2).tixCost + "\tTickets Available: " + tixType.get(2).tixNumber);
+        System.out.println("3) " + tixType.get(2).tixType + "\t\t$" + tixType.get(2).tixCost + "\tTickets Available: " + tixType.get(2).tixNumber);
     }
 
     public void DisplayTicketAge() {
         //Show first age group
-        System.out.println(tixAge.get(0).tixAge + "\t\t$" + tixAge.get(0).tixAgeCost);
+        System.out.println("1) " + tixAge.get(0).tixAge + "\t\t$" + tixAge.get(0).tixAgeCost);
         //Show second age group
-        System.out.println(tixAge.get(1).tixAge + "\t\t$" + tixAge.get(1).tixAgeCost);
+        System.out.println("2) " + tixAge.get(1).tixAge + "\t\t\t$" + tixAge.get(1).tixAgeCost);
         //Show third age group
-        System.out.println(tixAge.get(2).tixAge + "\t\t$" + tixAge.get(2).tixAgeCost);
+        System.out.println("3) " + tixAge.get(2).tixAge + "\t\t$" + tixAge.get(2).tixAgeCost);
         //Show fourth age group
-        System.out.println(tixAge.get(3).tixAge + "\t\t$" + tixAge.get(3).tixAgeCost);
+        System.out.println("4) " + tixAge.get(3).tixAge + "\t\t$" + tixAge.get(3).tixAgeCost);
     }
 
     public double cost(double typeCost, double ageCost) {
@@ -111,9 +111,9 @@ public class Money {
                 no = true;
             }
         }
-        
+
         return no;
-        
+
     }
 
 }

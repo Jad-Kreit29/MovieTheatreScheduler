@@ -15,6 +15,7 @@ public class SeatingArrangement {
 
     public void DisplaySeats() {
         char seatRow = 'A';
+        System.out.println("        SCREEN" + "\n-----------------------");
         for (int i = 0; i < 4; i++) {
             System.out.println(seatRow + "  " + "X X X X .... X X X X");
             seatRow++;
