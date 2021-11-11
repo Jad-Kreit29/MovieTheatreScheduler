@@ -75,12 +75,25 @@ public class MovieTheatreSchedulerRST {
             do {
                 userChoice = in.nextInt();
                 if (userChoice > 3 || userChoice < 1) {
-                    TimeUnit.SECONDS.sleep(1/2);
+                    TimeUnit.SECONDS.sleep(1);
                     System.out.println("This movie doesn\'t exist! Pick one we have listed");
                 } else if (userChoice == 1 || userChoice == 2 || userChoice == 3) {
                     movieChoiceCheck++;
                 }
             } while (movieChoiceCheck != 1);
+
+            //Ask for what time the user wants to see the film
+            System.out.println("\nWhat time do you want to see this movie? (1, 2, 3, etc)");
+
+            do {
+                userTime = in.nextInt();
+                movieTime = t.UserInput(userChoice, userTime);
+                if (!movieTime.toUpperCase().endsWith("M")) {
+                    TimeUnit.SECONDS.sleep(1);
+                    System.out.println("Time doesn't exist! Pick a different time");
+                }
+            } while (!movieTime.toUpperCase().endsWith("M"));
+            System.out.println("\nTime: " + movieTime);
 
             in.nextLine();
             TimeUnit.SECONDS.sleep(1);
@@ -109,18 +122,6 @@ public class MovieTheatreSchedulerRST {
                 movieChoice = "Depressing Film: The 3 Hour Drama: Real Life Edition";
             }
             TimeUnit.SECONDS.sleep(1);
-
-            System.out.println("\nWhat time do you want to see this movie? (1, 2, 3, etc)");
-
-            do {
-                userTime = in.nextInt();
-                movieTime = t.UserInput(userChoice, userTime);
-                if (!movieTime.toUpperCase().endsWith("M")) {
-                    TimeUnit.SECONDS.sleep(1);
-                    System.out.println("Time doesn't exist! Pick a different time");
-                }
-            } while (!movieTime.toUpperCase().endsWith("M"));
-            System.out.println("\nTime: " + movieTime);
 
             //Show the user the availbe screening options
             TimeUnit.SECONDS.sleep(1);
@@ -178,9 +179,9 @@ public class MovieTheatreSchedulerRST {
 
             //Ask how many of those tickets the user will be purchasing
             //Figure out if the user has inputed more tickets than what is available
-            //TimeUnit.SECONDS.sleep(1);
             boolean test = false;
             do {
+                TimeUnit.SECONDS.sleep(1);
                 System.out.println("\nHow many of those tickets will you buy?");
                 quantity = in.nextInt();
                 test = m.TixAvailable(quantity, typeCost);
