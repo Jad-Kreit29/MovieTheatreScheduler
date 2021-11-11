@@ -40,14 +40,11 @@ public class MovieTheatreSchedulerRST {
 
         String row = "";
         int seat = 0;
-        
-        
+
         ArrayList<Double> totalReciptCost = new ArrayList<>();
-        
-        
 
         //Variable for quitting the main loop of the program
-        int check = 0;
+        int mainCheck = 0;
 
         //Build a new theatre object
         Theatre t = new Theatre();
@@ -87,11 +84,19 @@ public class MovieTheatreSchedulerRST {
             in.nextLine();
             //TimeUnit.SECONDS.sleep(1);
             System.out.println("\nDo you want to hear what the movie is about? (y/n)");
-            userExplination = in.nextLine();
-            if (userExplination.toLowerCase().startsWith("y")) {
-                t.DisplayDescriptions(userChoice);
-            }
 
+            int check1 = 0;
+            do {
+                userExplination = in.nextLine();
+                if (userExplination.toLowerCase().startsWith("y")) {
+                    check1++;
+                    t.DisplayDescriptions(userChoice);
+                } else if (userExplination.toLowerCase().startsWith("n")) {
+                    check1++;
+                } else if (!userExplination.toLowerCase().startsWith("y") && !userExplination.toLowerCase().startsWith("n")) {
+                    System.out.println("Not a vaild option. Provide a Yes or No answer");
+                }
+            } while (check1 != 1);
             //Decide what film the user picked
             if (userChoice == 1) {
                 movieChoice = "Super Mario Brothers: The Movie!";
@@ -228,7 +233,7 @@ public class MovieTheatreSchedulerRST {
                 repeatChoice = in.nextLine();
                 if (repeatChoice.toLowerCase().startsWith("n")) {
                     check4++;
-                    check++;
+                    mainCheck++;
                 } else if (repeatChoice.toLowerCase().startsWith("y")) {
                     check4++;
                 } else if (!repeatChoice.toLowerCase().startsWith("y") && !repeatChoice.toLowerCase().startsWith("n")) {
@@ -236,15 +241,14 @@ public class MovieTheatreSchedulerRST {
                 }
             } while (check4 != 1);
 
-        } while (check != 1);
-        
+        } while (mainCheck != 1);
+
         double totalCost = 0;
-        
-        for (double z:totalReciptCost) {
+
+        for (double z : totalReciptCost) {
             totalCost += z;
         }
-        
-        
+
         //TimeUnit.SECONDS.sleep(1);
         //Ask the user to input the amount of money they have, and see if they can pay the price
         System.out.println("\nYour total is up to: $" + totalCost + " How much money are you going to pay?");
